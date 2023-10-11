@@ -4,7 +4,7 @@
 
 - Practice using event listeners
 
-## Practice Using Event Listeners
+## Practice Using Event Listeners in JS
 
 In `konami_code.js`, you'll notice that there's very little code in the file.
 If you examine what's there, you should see:
