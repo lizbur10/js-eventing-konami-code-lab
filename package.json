@@ -1,31 +1,21 @@
 {
-  "name": "konami-code-lab",
-  "version": "0.1.0",
-  "description": "Using event listeners, implement the Konami Code on a page",
+  "name": "javascript-lab",
+  "version": "1.0.0",
+  "description": "A JavaScript lab",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json"
+    "test": "mocha --timeout 5000 -R mocha-multi --reporter-options spec=-,json=.results.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/learn-co-curriculum/konami-code-lab.git"
-  },
-  "keywords": [
-    "javascript",
-    "flatiron",
-    "learn"
-  ],
-  "author": "pletcher",
-  "license": "SEE LICENSE IN LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/learn-co-curriculum/konami-code-lab/issues"
-  },
-  "homepage": "https://github.com/learn-co-curriculum/konami-code-lab#readme",
+  "author": "flatironschool",
+  "license": "Included in Repo",
   "devDependencies": {
-    "expect": "^1.20.2",
-    "jsdom": "^9.2.1",
-    "mocha": "^5.2.0",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "chai": "4.1.2",
+    "jsdom": "9.2.1",
+    "mocha": "5.2.0",
     "mocha-jsdom": "~1.1.0",
-    "mocha-multi": "^1.0.1"
+    "mocha-multi": "1.0.1",
+    "sinon": "^7.2.7"
   }
 }
