@@ -10,7 +10,18 @@ In `konami_code.js`, you'll notice that there's very little code in the file.
 If you examine what's there, you should see:
 
 ```js
-const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+const code = [
+  "ArrowUp",
+  "ArrowUp",
+  "ArrowDown",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowLeft",
+  "ArrowRight",
+  "b",
+  "a",
+];
 
 function init() {
   // your code here
@@ -46,26 +57,21 @@ the event listener and set everything up!_
 Here's a short example to help you get started:
 
 ```js
-// Key codes for A, B, and C keys.
-const alphabet = [65, 66, 67];
-
 // Keep track of index outside of the event handler.
 let index = 0;
 
 // This is the function that would be invoked by the event listener.
 function onKeyDownHandler(e) {
-  const key = parseInt(e.detail || e.which);
+  const key = e.key;
 
-  if (key === alphabet[index]) {
+  if (key === code[index]) {
     index++;
-
-    if (index === alphabet.length) {
+    if (index === code.length) {
       alert("Hurray!");
-
-      index = 0;
+      index = 0; // Reset the sequence
     }
   } else {
-    index = 0;
+    index = 0; // Reset the sequence
   }
 }
 ```
@@ -74,24 +80,20 @@ Have fun!
 
 ## Hints
 
-Be aware that we're looking at both `e.detail` and `e.which`. In modern
-browsers, `e.which` is usually enough; however, it's not universally supported,
-it's technically deprecated, and it sometimes exhibits finicky behavior in the
-test suite. To be safe, you might want to check `e.detail` or `e.location`. Or,
-to be safest, read the latest in the [`keydown` reference on MDN][keydown].
-This would be a good chance to use `console.log()` to check out the value of
-`e.detail`, `e.which`, and `e.location`.
+Be aware that we're only looking at the [`e.key`][key property] value. In modern
+browsers, the `e.key` method will return the value of the key pressed by the user.
+You can read the latest methods for getting keyboard codes at
+[`keydown` reference on MDN][keydown].
 
-Also note that we're calling `parseInt` on the key value. This is because the
-event handler might pass us the string representation of the number, which
-wouldn't work so well with our comparisons.
+This would be a good chance to use
+`console.log()` to check out the value of `e.key`.
 
 JavaScript [key codes][] in case you want to put together your own custom key sequence!
 
 ## Conclusion
 
 This exercise is fairly typical of the kinds of challenges front-end
-programmers get asked during interviews (although they have to write it on a
+programmers get asked during interviews (although they may have to write it on a
 whiteboard). It has all the essential bits of front-end developer skill:
 elements, events, listening, keeping track of state, clearing it out, etc. It's
 a real challenge!
@@ -105,3 +107,4 @@ a real challenge!
 [Easter Egg]: https://en.wikipedia.org/wiki/Easter_egg_(media)
 [key codes]: http://keycode.info/
 [keydown]: https://developer.mozilla.org/en-US/docs/Web/Events/keydown
+[key property]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
